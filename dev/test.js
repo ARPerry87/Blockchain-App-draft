@@ -3,36 +3,23 @@ const Blockchain = require('./blockchain');
 const bitcoin = new Blockchain();
 
 
-const previousBlockHash = '4875QRDJFDAJFD12432SKJA8'
+const previousBlockHash = 'OINAISDFN09N09ASDNF09N90ASNDF';
 const currentBlockData = [
 	{
-		amount: 10,
-		sender: 'ASLK817001JFDKAJLA',
-		recipient: 'DKWOAH9097AJWIHA1736'
+		amount: 101,
+		sender: 'N90ANS90N90ANSDFN',
+		recipient: '90NA90SNDF90ANSDF09N'
 	},
 	{
-		amount: 2,
-		sender: 'DKWLA9981URJSLA8H',
-		recipient: 'ZNKSUIWNA78798YHANA'
+		amount: 30,
+		sender: '09ANS09DFNA8SDNF',
+		recipient: 'UIANSIUDFUIABSDUIFB'
 	},
 	{
-		amount: 100,
-		sender: '9586JFJUHANAKDSL98987',
-		recipient: '8172JJNNWIOPQ78142563'
-	},
+		amount: 200,
+		sender: '89ANS89DFN98ASNDF89',
+		recipient: 'AUSDF89ANSD9FNASD'
+	}
 ];
 
-
-Blockchain.prototype.proofOfWork = function(previousBlockHash, currentBlockData) {
-// => repeatedly hash block until it finds correct hash => '0000987JKKPQJKDNSANW'
-// => uses current block data for the hash, but also the previousBlockHash
-// => continusously changes nonce value until it finds the correct hash
-// => returns to us the nonce value the creates the correct hash
-
-}
-
-
-const nonce = 100;
-
-
-console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, nonce));
+console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, 27470));
