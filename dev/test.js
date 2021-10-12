@@ -23,6 +23,15 @@ const currentBlockData = [
 ];
 
 
+Blockchain.prototype.proofOfWork = function(previousBlockHash, currentBlockData) {
+// => repeatedly hash block until it finds correct hash => '0000987JKKPQJKDNSANW'
+// => uses current block data for the hash, but also the previousBlockHash
+// => continusously changes nonce value until it finds the correct hash
+// => returns to us the nonce value the creates the correct hash
+
+}
+
+
 const nonce = 100;
 
 
