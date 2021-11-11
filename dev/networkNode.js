@@ -3,8 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
 const bitcoin = new Blockchain();
-const uuid = require('uuid').v4;
+const uuid = require('uuid').v4; 
 const port = process.argv[2];
+const rp = require('request-prompise')
 
 const nodeAddress = uuid().split('-').join('');
 
@@ -40,5 +41,47 @@ app.get('/mine', function(req, res) {
 	});
 
 });
+
+
+//register a node and broadcast a node to that network
+app.post('/register-and-broadcast-node', function(req, res) {
+	const newNodeUrl = req.body.newNodeUrl;
+	if (bitcoin.networkNodes.indexOf(newNodeUrl) == -1) bitcoin.networkNodes.push(newNodeUrl);
+
+	const regNodesPromises[];
+
+	bitcoin.networkNodes.forEach(networkNodeUrl => {
+		const requestOptions = {
+			uri: networkNodeUrl + '/register-node',
+			method: 'POST',
+			body: { newNodeUrl: networkNodeUrl },
+			json: true
+		};
+
+		regNodesPromises.push(rp(requestOptions));
+	});
+
+	Promise.all(regNodesPromises)
+	.then(data => {
+		//use the data...
+	});
+
+});
+
+
+//register a node with the network
+app.post('/register-node', function(req, res){
+
+});
+
+
+//
+app.post('/register-node-bulk', function(req, res) {
+
+
+});
+
+
+
 
 app.listen(port, () => console.log(`Listening on ${port} ...`));
